@@ -3,3 +3,7 @@ __pycache__
 db.sqlite3          # not needed if you're using Postgres locally
 gettingstarted/static/
 config.py
+.DS_Store
+env/lib
+env/bin
+env/include
