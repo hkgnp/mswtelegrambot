@@ -1,3 +1,4 @@
+from telegram import ReplyKeyboardMarkup
 from telegram.ext import Updater, InlineQueryHandler, CommandHandler
 import config
 import json
@@ -25,13 +26,14 @@ def medisave(update, context):
     update.message.reply_text(medisave)
 
 def medishield(update, context):
+    keyboard = ReplyKeyboardMarkup([['Read More']])
     medishield = retrieve()['medishield']['content']
-    update.message.reply_text(medishield)
+    update.message.reply_text(medishield, reply_markup=keyboard)
 
 def main():
     print("MSW Bot started")
     updater = Updater(config.token)
-    dp = updater.dispatcher    
+    dp = updater.dispatcher
     dp.add_handler(CommandHandler("start", start))
     dp.add_handler(CommandHandler("help", help))
     dp.add_handler(CommandHandler("medisave",medisave))       
