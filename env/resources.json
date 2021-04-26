@@ -1,0 +1,10 @@
+{
+  "medisave": {
+    "title": "Medisave Inpatient Claimable Limits",
+    "content": "https://www.moh.gov.sg/cost-financing/healthcare-schemes-subsidies/medisave"
+  },
+  "medishield": {
+    "title": "MediShield Life Claimable Limits",
+    "content": "https://www.moh.gov.sg/home/our-healthcare-system/medishield-life/what-is-medishield-life/what-medishield-life-benefits"
+  }
+}
