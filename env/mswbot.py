@@ -16,10 +16,10 @@ def retrieve():
     return data
 
 def start (update, context):
-    update.message.reply_text("Nice to meet you! I am just a prototype, but you can start by keying in /medisave or /medishield to see links to their claimable limits!")
+    update.message.reply_text("Nice to meet you! I am just a prototype, but you can start by keying in /ics or /medisave or /medishield to see links to their claimable limits!")
 
 def help (update, context):
-    update.message.reply_text("Nice to meet you! I am just a prototype, but you can start by keying in /medisave or /medishield to see links to their claimable limits!")
+    update.message.reply_text("Nice to meet you! I am just a prototype, but you can start by keying in /ics or /medisave or /medishield to see links to their claimable limits!")
 
 def medisave(update, context):
     medisave = retrieve()['medisave']['content']
@@ -30,6 +30,10 @@ def medishield(update, context):
     medishield = retrieve()['medishield']['content']
     update.message.reply_text(medishield, reply_markup=keyboard)
 
+def ics(update, context):
+    ics = retrieve()['ics']['content']
+    update.message.reply_text(ics)
+
 def main():
     print("MSW Bot started")
     updater = Updater(config.token)
@@ -37,7 +41,8 @@ def main():
     dp.add_handler(CommandHandler("start", start))
     dp.add_handler(CommandHandler("help", help))
     dp.add_handler(CommandHandler("medisave",medisave))       
-    dp.add_handler(CommandHandler("medishield",medishield))      
+    dp.add_handler(CommandHandler("medishield",medishield))     
+    dp.add_handler(CommandHandler("ics", ics)) 
     updater.start_polling()
     updater.idle()
 
