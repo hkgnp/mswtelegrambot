@@ -41,8 +41,26 @@ def ics(update, context):
     ntuc_details = retrieve_ics()[0]['details']
     ntuc_contact = retrieve_ics()[0]['contact']
     ntuc_lastupdate = retrieve_ics()[0]['last_updated']
+
+    ag_name = retrieve_ics()[1]['org_name']
+    ag_details = retrieve_ics()[1]['details']
+    ag_contact = retrieve_ics()[1]['contact']
+    ag_lastupdate = retrieve_ics()[1]['last_updated']
+
+    thkcare_name = retrieve_ics()[2]['org_name']
+    thkcare_details = retrieve_ics()[2]['details']
+    thkcare_contact = retrieve_ics()[2]['contact']
+    thkcare_lastupdate = retrieve_ics()[2]['last_updated']
+
+    thknh_name = retrieve_ics()[3]['org_name']
+    thknh_details = retrieve_ics()[3]['details']
+    thknh_contact = retrieve_ics()[3]['contact']
+    thknh_lastupdate = retrieve_ics()[3]['last_updated']
+
     update.message.reply_text([ntuc_name] + [ntuc_details] + [ntuc_contact] + [ntuc_lastupdate])
-    update.message.reply_text([ntuc_name] + [ntuc_details] + [ntuc_contact] + [ntuc_lastupdate])
+    update.message.reply_text([ag_name] + [ag_details] + [ag_contact] + [ag_lastupdate])
+    update.message.reply_text([thkcare_name] + [thkcare_details] + [thkcare_contact] + [thkcare_lastupdate])
+    update.message.reply_text([thknh_name] + [thknh_details] + [thknh_contact] + [thknh_lastupdate])
 
 def main():
     print("MSW Bot started")
