@@ -37,11 +37,12 @@ def medishield(update, context):
     update.message.reply_text(medishield, reply_markup=keyboard)
 
 def ics(update, context):
-    ntuc = retrieve_ics()[0]['org_name']
+    ntuc_name = retrieve_ics()[0]['org_name']
     ntuc_details = retrieve_ics()[0]['details']
     ntuc_contact = retrieve_ics()[0]['contact']
-    ntuc_lastupdate = retrieve_ics()[0]
-    update.message.reply_text(ntuc + ntuc_details + ntuc_contact + ntuc_lastupdate)
+    ntuc_lastupdate = retrieve_ics()[0]['last_updated']
+    update.message.reply_text([ntuc_name] + [ntuc_details] + [ntuc_contact] + [ntuc_lastupdate])
+    update.message.reply_text([ntuc_name] + [ntuc_details] + [ntuc_contact] + [ntuc_lastupdate])
 
 def main():
     print("MSW Bot started")
