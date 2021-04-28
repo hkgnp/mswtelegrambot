@@ -19,9 +19,6 @@ def retrieve():
 # Retrieving from api
 def retrieve_ics():
     response = requests.get("https://icschecker.herokuapp.com/api/index")
-    print(response.content())
-    print(response.text())
-    print(response.json())
     return response.json()
 
 def start (update, context):
