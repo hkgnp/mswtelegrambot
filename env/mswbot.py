@@ -19,14 +19,9 @@ def retrieve():
     return data
 
 # Retrieving from api
-async def retrieve_ics():
-    # response = requests.get("https://icschecker.herokuapp.com/api/index")
-    # return response.json()
-    async with aiohttp.ClientSession() as session:
-        url = 'https://icschecker.herokuapp.com/api/index'
-        async with session.get(url) as resp:
-            results = await resp.json()
-            return results
+def retrieve_ics():
+    response = requests.get("https://icschecker.herokuapp.com/api/index")
+    return response.json()
 
 def start (update, context):
     update.message.reply_text("Nice to meet you! I am just a prototype, but you can start by keying in /ics or /medisave or /medishield to see links to their claimable limits!")
@@ -44,25 +39,26 @@ def medishield(update, context):
     update.message.reply_text(medishield, reply_markup=keyboard)
 
 def ics(update, context):
-    ntuc_name = retrieve_ics()[0]['org_name']
-    ntuc_details = retrieve_ics()[0]['details']
-    ntuc_contact = retrieve_ics()[0]['contact']
-    ntuc_lastupdate = retrieve_ics()[0]['last_updated']
+    results = retrieve_ics()
+    ntuc_name = results()[0]['org_name']
+    ntuc_details = results()[0]['details']
+    ntuc_contact = results()[0]['contact']
+    ntuc_lastupdate = results()[0]['last_updated']
 
-    ag_name = retrieve_ics()[1]['org_name']
-    ag_details = retrieve_ics()[1]['details']
-    ag_contact = retrieve_ics()[1]['contact']
-    ag_lastupdate = retrieve_ics()[1]['last_updated']
+    ag_name = results()[1]['org_name']
+    ag_details = results()[1]['details']
+    ag_contact = results()[1]['contact']
+    ag_lastupdate = results()[1]['last_updated']
 
-    thkcare_name = retrieve_ics()[2]['org_name']
-    thkcare_details = retrieve_ics()[2]['details']
-    thkcare_contact = retrieve_ics()[2]['contact']
-    thkcare_lastupdate = retrieve_ics()[2]['last_updated']
+    thkcare_name = results()[2]['org_name']
+    thkcare_details = results()[2]['details']
+    thkcare_contact = results()[2]['contact']
+    thkcare_lastupdate = results()[2]['last_updated']
 
-    thknh_name = retrieve_ics()[3]['org_name']
-    thknh_details = retrieve_ics()[3]['details']
-    thknh_contact = retrieve_ics()[3]['contact']
-    thknh_lastupdate = retrieve_ics()[3]['last_updated']
+    thknh_name = results()[3]['org_name']
+    thknh_details = results()[3]['details']
+    thknh_contact = results()[3]['contact']
+    thknh_lastupdate = results()[3]['last_updated']
 
     update.message.reply_text([ntuc_name] + [ntuc_details] + [ntuc_contact] + [ntuc_lastupdate])
     update.message.reply_text([ag_name] + [ag_details] + [ag_contact] + [ag_lastupdate])
