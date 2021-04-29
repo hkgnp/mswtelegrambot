@@ -4,6 +4,8 @@ import config
 import json
 from pathlib import Path
 import requests
+import asyncio
+import aiohttp
 
 # 1. Get dictionary
 # 2. Assign each object to a variable
@@ -17,9 +19,14 @@ def retrieve():
     return data
 
 # Retrieving from api
-def retrieve_ics():
-    response = requests.get("https://icschecker.herokuapp.com/api/index")
-    return response.json()
+async def retrieve_ics():
+    # response = requests.get("https://icschecker.herokuapp.com/api/index")
+    # return response.json()
+    async with aiohttp.ClientSession() as session:
+        url = 'https://icschecker.herokuapp.com/api/index'
+        async with session.get(url) as resp:
+            results = await resp.json()
+            return results
 
 def start (update, context):
     update.message.reply_text("Nice to meet you! I am just a prototype, but you can start by keying in /ics or /medisave or /medishield to see links to their claimable limits!")
