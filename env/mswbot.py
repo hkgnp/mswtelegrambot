@@ -40,8 +40,7 @@ def medishield(update, context):
     # update.message.reply_text(medishield, reply_markup=keyboard)
 
 def amkch(update, context):
-    amkch = retrieve()['amkch']['content']
-    update.message.reply_text(amkch)
+    update.message.reply_photo(photo=open('/home/ben/Documents/mswtelegrambot/env/amkch.png', 'rb'))
 
 def ics(update, context):
     results = retrieve_ics()
@@ -76,9 +75,10 @@ def main():
     dp = updater.dispatcher
     dp.add_handler(CommandHandler("start", start))
     dp.add_handler(CommandHandler("help", help))
-    dp.add_handler(CommandHandler("medisave",medisave))       
-    dp.add_handler(CommandHandler("medishield",medishield))     
-    dp.add_handler(CommandHandler("ics", ics)) 
+    dp.add_handler(CommandHandler("medisave",medisave))
+    dp.add_handler(CommandHandler("medishield",medishield))
+    dp.add_handler(CommandHandler("ics", ics))
+    dp.add_handler(CommandHandler("amkch", amkch))
     updater.start_polling()
     updater.idle()
 
