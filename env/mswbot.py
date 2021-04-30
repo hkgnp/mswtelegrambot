@@ -34,9 +34,14 @@ def medisave(update, context):
     update.message.reply_text(medisave)
 
 def medishield(update, context):
-    keyboard = ReplyKeyboardMarkup([['Read More']])
+    # keyboard = ReplyKeyboardMarkup([['Read More']])
     medishield = retrieve()['medishield']['content']
-    update.message.reply_text(medishield, reply_markup=keyboard)
+    update.message.reply_text(medishield)
+    # update.message.reply_text(medishield, reply_markup=keyboard)
+
+def amkch(update, context):
+    amkch = retrieve()['amkch']['content']
+    update.message.reply_text(amkch)
 
 def ics(update, context):
     results = retrieve_ics()
