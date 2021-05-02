@@ -6,10 +6,5 @@
   "medishield": {
     "title": "MediShield Life Claimable Limits",
     "content": "https://www.moh.gov.sg/home/our-healthcare-system/medishield-life/what-is-medishield-life/what-medishield-life-benefits"
-  },
-  "ics": {
-    "title": "Latest ICS Availability",
-    "date": "26-04-2021",
-    "content": "NTUC (67156778): 12/5 (male staff) and 13/5 (female staff) \n Active Global (65360086): 10/5 \n THK Care Provider-Ensuite(66900585): 11/5 \n THK NH Hougang (68412128): 8/5 (east & north-east)"
-  },
+  }
 }
