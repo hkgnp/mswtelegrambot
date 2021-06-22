@@ -8,3 +8,5 @@ env/lib
 env/bin
 env/include
 .vscode
+startup.sh
+
