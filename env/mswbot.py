@@ -44,25 +44,27 @@ def amkch(update, context):
 
 def ics(update, context):
     results = retrieve_ics()
+    date_format = slice(10)
+
     ntuc_name = results[0]['org_name']
     ntuc_details = results[0]['details']
     ntuc_contact = results[0]['contact']
-    ntuc_lastupdate = results[0]['last_updated']
+    ntuc_lastupdate = "Updated: " + results[0]['last_updated'][date_format]
 
     ag_name = results[1]['org_name']
     ag_details = results[1]['details']
     ag_contact = results[1]['contact']
-    ag_lastupdate = results[1]['last_updated']
+    ag_lastupdate = "Updated: " + results[1]['last_updated'][date_format]
 
     thkcare_name = results[2]['org_name']
     thkcare_details = results[2]['details']
     thkcare_contact = results[2]['contact']
-    thkcare_lastupdate = results[2]['last_updated']
+    thkcare_lastupdate = "Updated: " + results[2]['last_updated'][date_format]
 
     thknh_name = results[3]['org_name']
     thknh_details = results[3]['details']
     thknh_contact = results[3]['contact']
-    thknh_lastupdate = results[3]['last_updated']
+    thknh_lastupdate = "Updated: " + results[3]['last_updated'][date_format]
 
     update.message.reply_text([ntuc_name] + [ntuc_details] + [ntuc_contact] + [ntuc_lastupdate])
     update.message.reply_text([ag_name] + [ag_details] + [ag_contact] + [ag_lastupdate])
